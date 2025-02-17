@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/thuhale2210/comp367-lab2-CI-pipeline.git'
+                git branch: 'main', url: 'https://github.com/thuhale2210/comp367-lab2-CI-pipeline.git'
             }
         }
         
