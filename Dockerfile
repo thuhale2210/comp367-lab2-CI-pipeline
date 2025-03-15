@@ -1,14 +1,12 @@
-# Use an official OpenJDK runtime as a parent image
 FROM openjdk:11-jdk
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the built JAR file into the container
-COPY target/*.jar app.jar
+# Copy the built WAR file instead of a JAR
+COPY target/*.war app.war
 
 # Expose port 8080
 EXPOSE 8080
 
-# Run the JAR file
-CMD ["java", "-jar", "app.jar"]
+# Run the application using a web server (if needed)
+CMD ["java", "-jar", "app.war"]

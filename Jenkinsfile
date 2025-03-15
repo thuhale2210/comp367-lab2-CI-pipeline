@@ -20,6 +20,7 @@ pipeline {
             steps {
                 echo 'Building the project...'
                 sh '/opt/homebrew/bin/mvn clean package'
+		sh 'ls -lh target/'
             }
         }
 
