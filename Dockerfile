@@ -1,12 +1,10 @@
-FROM openjdk:11-jdk
+FROM tomcat:9.0-jdk11
 
-WORKDIR /app
-
-# Copy the built WAR file into container
-COPY target/*.war app.war
+# Copy the built WAR file into Tomcat’s webapps directory
+COPY target/*.war /usr/local/tomcat/webapps/app.war
 
 # Expose port 8080
 EXPOSE 8080
 
-# Run the application
-CMD ["java", "-jar", "app.war"]
+# Start Tomcat
+CMD ["catalina.sh", "run"]
